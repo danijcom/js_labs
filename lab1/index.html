@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lab 1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  </head>
+  <body>
+    <h1>Лабораторная работа №1</h1>
+
+    <script>
+        String.prototype.replaceAt = function(index, replacement) {
+          return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+        }
+
+        function morphWord(word){
+          if (word[word.length-1] === "а")
+            return word.replaceAt(word.length-1, "у");
+          return word;
+        }
+
+        Date.prototype.ddmmyyyy = function() {
+            let mm = this.getMonth() + 1;
+            let dd = this.getDate();
+
+            return [(dd>9 ? '' : '0') + dd,
+                    (mm>9 ? '' : '0') + mm,
+                    this.getFullYear()
+                ].join('.');
+
+        };
+
+        function getUsersFullName() {
+          let fullname;
+          while (true) {
+            fullname = prompt("Введите свои ФИО");
+            if (fullname != null && fullname !== ""){
+              if ((fullname.split(" ").length - 1) === 2)
+                break;
+            }
+          }
+          return fullname;
+        }
+
+        function getUsersSex(name){
+          let sex;
+          while (true) {
+            sex = prompt(name + ", введи свой пол");
+            if (sex != null && sex !== ""){
+              sex = sex.toString()[0].toLowerCase();
+              if (sex === "м" || sex === "ж")
+                break;
+            }
+          }
+          return sex;
+        }
+
+        function getUsersBirthday(name) {
+          let birthdate;
+          let correctBirthday;
+          while (true) {
+            birthdate = prompt(name + ", введи дату рождения");
+            if (birthdate != null && birthdate !== ""){
+              birthdate = birthdate.split(".");
+              if ((birthdate.length - 1) === 2){
+                let year = birthdate[2];
+                let month = birthdate[1];
+                let day = birthdate[0];
+                correctBirthday = new Date(year + "." + month + "." + day);
+                let result = confirm("Ваша дата рождения " + correctBirthday.ddmmyyyy() + "?")
+                if (result)
+                  break;
+              }
+            }
+          }
+          return correctBirthday;
+        }
+
+        function getUsersGroup(name) {
+          let group;
+          while (true) {
+            group = prompt(name + ", из какой ты группы?");
+            if (group != null && fullname !== "")
+              break;
+          }
+          return group;
+        }
+
+        function getFirstPart(fullname, sex, birthday, group){
+          let part1 = "Я, "
+          sex === "м" ? part1 += "студент" : part1 += "студентка";
+          let _fullname = fullname.split(" ")
+          part1 += " группы " + group + " " + _fullname[0] + " " + _fullname[1][0] + ". " + _fullname[2][0] + ". "
+          sex === "м" ? part1 += "родился" : part1 += "родилась";
+          part1 += " " + birthday.ddmmyyyy() + " это был день " + birthday.toLocaleDateString('ru-RU', { weekday: 'long' });
+          return part1
+        }
+
+        function getSecondPart() {
+          let dateNow = new Date();
+          let nextYear = dateNow.getFullYear()+1;
+          let nextBirthday = new Date(nextYear, birthday.getMonth(), birthday.getDay())
+          let dayOfTheWeek = nextBirthday.toLocaleDateString('ru-RU', { weekday: 'long' });
+
+          let beforeSummer;
+          if (dateNow.getMonth() > 7) {
+            let summer = new Date(dateNow.getFullYear() + 1, 5, 1);
+            beforeSummer = Math.abs(dateNow - summer) / (60 * 60 * 1000);
+            beforeSummer = "До начала лета осталось " + beforeSummer.toFixed() + " часов!";
+          }
+          else if (dateNow.getMonth() < 5) {
+            let summer = new Date(dateNow.getFullYear(), 5, 1);
+            beforeSummer = Math.abs(dateNow - summer) / (60 * 60 * 1000);
+            beforeSummer = "До начала лета осталось " + beforeSummer.toFixed() + " часов!";
+          }
+          else
+            beforeSummer = "Лето уже идет!";
+
+          return "В следующем " + nextYear + " году мой день рождения придется на " + morphWord(dayOfTheWeek) + "\n" + beforeSummer
+        }
+
+        let fullname = getUsersFullName()
+        let name = fullname.split(" ")[1]
+        let sex = getUsersSex(name);
+        let birthday = getUsersBirthday(name);
+        let group = getUsersGroup(name);
+        let part1 = getFirstPart(fullname, sex, birthday, group)
+        let part2 = getSecondPart()
+
+        alert(part1 + "\n" + part2);
+
+    </script>
+  </body>
+</html>
