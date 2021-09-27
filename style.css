@@ -8,6 +8,8 @@ body {
   background: #1A1E23;
 }
 
+html, body {margin: 0; height: 100%; overflow: hidden}
+
 ul {
   display: flex;
   flex-direction: column;
