@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 2</title>
+        <script src="scripts.js" ></script>
+        <script>
+            window.addEventListener("DOMContentLoaded", function() {
+                document.querySelector("#n").addEventListener("keyup", event => {
+                    if(event.key !== "Enter") return;
+                    mathClick();
+                    event.preventDefault();
+                });
+                document.querySelector("#fname").addEventListener("keyup", event => {
+                    if(event.key !== "Enter") return;
+                    regexClick();
+                    event.preventDefault();
+                });
+            }, false);
+        </script>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <h1 class="header">Лабораторная работа №2</h1>
+
+        <div class="modal input">
+            <div class='modal-header'><h2>Введите данные</h2></div>
+            <div class='modal-body'>
+
+                <div class="mydiv">
+                    <label>N<br>
+                        <input type='text' name='n' id='n' /></label>
+                    <button type='button' onclick='mathClick()'>Ok</button>
+                </div>
+
+                <br><br>
+
+                <div class="mydiv">
+                    <label>File name<br>
+                        <input type='text' name='fname' id='fname' /></label>
+                    <button type='button' onclick='regexClick()'>Ok</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="modal output">
+            <div class='modal-body output'>
+            </div>
+        </div>
+
+    </body>
+</html>
