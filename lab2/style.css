@@ -2,6 +2,21 @@ body {
     font-family: Calibri;
 }
 
+a:link {
+    text-decoration: none;
+    color: #658ead;
+}
+a:visited {
+    text-decoration: none;
+    color: #658ead;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:active {
+    text-decoration: underline;
+}
+
 .header {
     text-align: center;
 }
