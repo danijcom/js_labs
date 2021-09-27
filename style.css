@@ -34,6 +34,9 @@ ul li a {
   background-clip: text;
   transition: 0.5s linear;
 }
+ul li a.notnow {
+  --fill-color: #697d8c;
+}
 ul li a:hover {
   background-size: 100%;
 }
