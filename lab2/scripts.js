@@ -69,9 +69,7 @@ function regexClick(){
     else
         output = "<br>Название файла <b>НЕ сходится</b> с названием архива.<br>";
 
-    setTimeout(() => {
-        document.resultElem.innerHTML += output;
-    }, 1000);
+    document.resultElem.innerHTML += output;
 }
 
 //Проверяем введенный путь регуляркой на расширение архивов (все что смог вспомнить)
