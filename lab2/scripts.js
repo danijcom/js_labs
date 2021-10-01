@@ -11,6 +11,14 @@
 
  */
 
+//Собствено функция, которая будет выступать параметром callback
+//    (просто вывод текста в элемент с результатами)
+function callbackPrint(text){
+    if (document.resultElem == null)
+        document.resultElem = document.querySelector(".modal div.output");
+    document.resultElem.innerHTML += text;
+}
+
 //Передаем массив, получаем сумму положительных чисел в нем
 function calculation_x(x){
     //reduce применяет функцию к каждому элементу массива,
@@ -30,7 +38,7 @@ function isInt(value) {
 
 //Основаня функция, при нажатии на Ок на главной странице
 //   под полем для ввода кол-ва цифр массива
-function mathClick(){
+function doMath(callback){
     //Проверим, чтобы в поле вообще было число
     document.n = document.getElementById("n").value;
     if (!isInt(document.n)){
@@ -48,8 +56,12 @@ function mathClick(){
     output += "<b>Сумма положительных:</b> " + sum + "<br><br>";
 
     setTimeout(() => {
-        document.resultElem.innerHTML += output;
+        callback(output);
     }, 1000);
+}
+
+function mathClick(){
+    doMath(callbackPrint);
 }
 
 //Основная функция, которая обрабатывает нажатие Ок на главной странице
