@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lab 3</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" ></script>
+    <script>
+      window.addEventListener("load", () => {
+        document.querySelectorAll('#timetable tr td').forEach(item => {
+          item.addEventListener('mouseover', hover);
+          item.addEventListener('mouseout', unhover);
+        });
+
+        generateLesson();
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <a href="https://github.com/danijcom/js_labs/tree/main/lab3">
+        <h1 class="header">Лабораторная работа №3</h1>
+      </a>
+    </div>
+
+    <div class="container">
+      <form>
+        <select id="selectedDay">
+          <option value="0">Понедельник</option>
+          <option value="1">Вторник</option>
+          <option value="2">Среда</option>
+          <option value="3">Четверг</option>
+          <option value="4">Пятница</option>
+        </select>
+
+        <select id="selectedLesson">
+          <option value="0">Пара 1</option>
+          <option value="1">Пара 2</option>
+          <option value="2">Пара 3</option>
+          <option value="3">Пара 4</option>
+        </select>
+
+        <button type="button" onclick='findLesson()'>Найти!</button>
+      </form>
+    </div>
+
+    <div class="container">
+      <table id="timetable">
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">1 пара</th>
+          <th scope="col">2 пара</th>
+          <th scope="col">3 пара</th>
+          <th scope="col">4 пара</th>
+        </tr>
+
+        <tr>
+          <th scope="row">Понедельник</th>
+          <td></td>
+          <td>КПП (лаб)</td>
+          <td>МС (лаб)</td>
+          <td>ИСО (лек)</td>
+        </tr>
+
+        <tr>
+          <th scope="row">Вторник</th>
+          <td></td>
+          <td>Этика (семинар)</td>
+          <td>СУБД (лаб)</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <th scope="row">Среда</th>
+          <td>ОС (лекция)</td>
+          <td>ОС (лаб)</td>
+          <td>ИСО (лаб)</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <th scope="row">Четверг</th>
+          <td>Физическая культура</td>
+          <td>ТПР (лаб)</td>
+          <td>МС (лекция)</td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <th scope="row">Пятница</th>
+          <td>ТПР (лекция)</td>
+          <td>СУБД (лекция)</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
