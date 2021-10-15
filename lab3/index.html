@@ -9,6 +9,7 @@
         document.querySelectorAll('#timetable tr td').forEach(item => {
           item.addEventListener('mouseover', hover);
           item.addEventListener('mouseout', unhover);
+          item.addEventListener('click', unsellect);
         });
 
         generateLesson();

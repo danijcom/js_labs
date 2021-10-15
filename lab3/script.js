@@ -46,3 +46,7 @@ function hover(event) {
 function unhover(event) {
   event.currentTarget.classList.remove('active');
 }
+//Снятие select`а
+function unsellect(event) {
+  event.currentTarget.classList.remove('selected');
+}
