@@ -21,7 +21,7 @@
 
   <button class="start_button">Старт</button>
 
-  <div class="center">
+  <div class="center" id="img_container">
     <img src="img/cloud.png" />
     <img src="img/sun.png" />
     <img src="img/cloud.png" />
@@ -38,8 +38,8 @@
 
   <script>
     $(".start_button").click(function() {
-      let move_width = "-" + $("img:odd").width() + "px";
-      $("img:odd").animate({top: move_width}, "slow");
+      let move_width = "-" + $("img:odd", "div#img_container").width() + "px";
+      $("img:odd", "div#img_container").animate({top: move_width}, "slow");
     });
   </script>
 </html>
