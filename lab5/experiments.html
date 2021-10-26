@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <title>Лаб 5 | Задание 1</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
+    <link rel="stylesheet" href="src/style.css" />
+    <style>
+      .squares {
+        overflow: hidden;
+      }
+
+      .MsoNormal {
+        float: left;
+        width: 150px;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #FFFFFF;
+      }
+      .MsoNormal:nth-child(even) {
+        background-color: #607d8b;
+      }
+      .MsoNormal:nth-child(odd) {
+        background-color: #ff4081;
+      }
+    </style>
+  </head>
+
+  <button class="hide_btn">Скрыть</button>
+  <button class="show_btn">Показать</button>
+
+  <br><br>
+
+  <div class="squares">
+    <div class="MsoNormal">1</div>
+    <div class="MsoNormal">2</div>
+    <div class="MsoNormal">3</div>
+    <div class="MsoNormal">4</div>
+    <div class="MsoNormal">5</div>
+  </div>
+
+  <div class="nextlink">
+    <a href="experiments2.html">
+      <h1 class="header">Задание 2</h1>
+    </a>
+  </div>
+
+  <script>
+    $(".show_btn").click(function(){
+      $(".MsoNormal:even").show()
+    });
+
+    $(".hide_btn").click(function(){
+      $(".MsoNormal:even").hide()
+    });
+  </script>
+</html>

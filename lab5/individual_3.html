@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>Лаб 5 | Задание 3</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
+    <link rel="stylesheet" href="src/style.css" />
+
+    <style>
+      .paragraphs{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      .paragraphs p {
+        display: none;
+      }
+      .paragraphs p:nth-child(even) {
+        color: #607d8b;
+      }
+      .paragraphs p:nth-child(odd) {
+        color: #ff4081;
+      }
+      .center {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+    </style>
+
+  </head>
+
+  <button class="start_btn">Старт</button>
+
+  <br>
+  <br>
+
+  <div class="paragraphs">
+    <p>1.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus ligula odio, sit amet blandit urna pharetra et. Aliquam erat volutpat. In hac habitasse platea dictumst. Morbi eleifend egestas metus.</p>
+    <p>2.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus ligula odio, sit amet blandit urna pharetra et. Aliquam erat volutpat. In hac habitasse platea dictumst. Morbi eleifend egestas metus.</p>
+    <p>3.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus ligula odio, sit amet blandit urna pharetra et. Aliquam erat volutpat. In hac habitasse platea dictumst. Morbi eleifend egestas metus.</p>
+    <p>4.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus ligula odio, sit amet blandit urna pharetra et. Aliquam erat volutpat. In hac habitasse platea dictumst. Morbi eleifend egestas metus.</p>
+    <p>5.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus ligula odio, sit amet blandit urna pharetra et. Aliquam erat volutpat. In hac habitasse platea dictumst. Morbi eleifend egestas metus.</p>
+    <p>6.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus ligula odio, sit amet blandit urna pharetra et. Aliquam erat volutpat. In hac habitasse platea dictumst. Morbi eleifend egestas metus.</p>
+    <p>7.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus ligula odio, sit amet blandit urna pharetra et. Aliquam erat volutpat. In hac habitasse platea dictumst. Morbi eleifend egestas metus.</p>
+    <p>8.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus ligula odio, sit amet blandit urna pharetra et. Aliquam erat volutpat. In hac habitasse platea dictumst. Morbi eleifend egestas metus.</p>
+    <p>9.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus ligula odio, sit amet blandit urna pharetra et. Aliquam erat volutpat. In hac habitasse platea dictumst. Morbi eleifend egestas metus.</p>
+    <p>10. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus ligula odio, sit amet blandit urna pharetra et. Aliquam erat volutpat. In hac habitasse platea dictumst. Morbi eleifend egestas metus.</p>
+  </div>
+
+  <div class="nextlink">
+    <a href="individual_4.html">
+      <h1 class="header">Задание 4</h1>
+    </a>
+  </div>
+
+  <script>
+    $(".start_btn").click(function () {
+      $(".paragraphs p:odd").fadeIn(2000, function() {
+        $(".paragraphs p:odd").fadeOut(2000, function() {
+          $(".paragraphs p:even").fadeIn(2000, function() {
+            $(".paragraphs p:even").fadeOut(2000, function() {
+            });
+          });
+        });
+      });
+    });
+  </script>
+</html>

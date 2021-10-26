@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Лаб 5 | Задание 4</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
+    <link rel="stylesheet" href="src/style.css" />
+    <style>
+      img {
+        display: block;
+        float: left;
+        clear: left;
+        position: relative;
+      }
+
+      img:nth-child(odd) {
+        z-index: 9999;
+      }
+    </style>
+  </head>
+
+  <button class="start_button">Старт</button>
+
+  <div class="center">
+    <img src="img/cloud.png" />
+    <img src="img/sun.png" />
+    <img src="img/cloud.png" />
+    <img src="img/sun.png" />
+    <img src="img/cloud.png" />
+    <img src="img/sun.png" />
+  </div>
+
+  <div class="nextlink">
+    <a href="index.html">
+      <h1 class="header">К началу</h1>
+    </a>
+  </div>
+
+  <script>
+    $(".start_button").click(function() {
+      let move_width = "-" + $("img:odd").width() + "px";
+      $("img:odd").animate({top: move_width}, "slow");
+    });
+  </script>
+</html>

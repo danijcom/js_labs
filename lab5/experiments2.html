@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Лаб 5 | Задание 2</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+
+  <style>
+    input[type="text"] {
+      font-size: 5em;
+      border: 2px solid #4a4a4a;
+    }
+  </style>
+
+  <div class="center">
+    <input type="text" id="elem" />
+  </div>
+
+  <div class="nextlink">
+    <a href="individual_3.html">
+      <h1 class="header">Задание 3</h1>
+    </a>
+  </div>
+
+  <script>
+    function getRandomColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    $("#elem").keypress(function(){
+      $(this).css("background-color", getRandomColor());
+      $(this).css("color", getRandomColor());
+    });
+  </script>
+</html>

@@ -1,0 +1,35 @@
+body {
+    font-family: Calibri;
+}
+a:link {
+    text-decoration: none;
+    color: #6a7b8b;
+}
+a:visited {
+    text-decoration: none;
+    color: #6a7b8b;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:active {
+    text-decoration: underline;
+}
+.container {
+    padding: 5px;
+}
+.center {
+    padding-top: 70px;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+}
+.nextlink {
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+    transform: translate(-50%);
+    left: 50%;
+    position: absolute;
+    bottom: 30px;
+}
