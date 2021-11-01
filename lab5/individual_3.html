@@ -13,7 +13,7 @@
         transform: translate(-50%, -50%);
       }
       .paragraphs p {
-        display: none;
+        /*display: none;*/
       }
       .paragraphs p:nth-child(even) {
         color: #607d8b;
@@ -57,15 +57,27 @@
   </div>
 
   <script>
-    $(".start_btn").click(function () {
-      $(".paragraphs p:odd").fadeIn(2000, function() {
-        $(".paragraphs p:odd").fadeOut(2000, function() {
-          $(".paragraphs p:even").fadeIn(2000, function() {
-            $(".paragraphs p:even").fadeOut(2000, function() {
-            });
-          });
-        });
-      });
-    });
+    var out = false; //Скрыты ли параграфы
+    //Обработка нажатия кнопки
+    $(".start_btn").click(function (){
+      //Найдем все параграфы
+      const preview = document.querySelectorAll(".paragraphs p");
+      //Если параграфы не скрыты, то скроем
+      if (!out){
+        for (var i = 0; i < preview.length;  i++) {
+          if(i % 2 !== 0)
+            preview[i].style.visibility = "hidden";
+        }
+        out = true;
+      }
+      //Иначе (если скрыты), то откроем
+      else{
+        for (var i = 0; i < preview.length;  i++) {
+          if(i % 2 !== 0)
+            preview[i].style.visibility = "visible";
+        }
+        out = false;
+      }
+    })
   </script>
 </html>
