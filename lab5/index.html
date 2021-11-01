@@ -26,6 +26,11 @@
         padding-left: 10px;
         color: transparent;
       }
+      .divtext {
+        pointer-events: none;
+        z-index: -9999;
+        font-size: 0px;
+      }
 
       .menu .menu_item:nth-child(1) {
         background-image: url(img/menu_red.png);
@@ -66,11 +71,11 @@
   </head>
 
   <div class="menu">
-    <div class="menu_item"></div>
-    <div class="menu_item"></div>
-    <div class="menu_item"></div>
-    <div class="menu_item"></div>
-    <div class="menu_item"></div>
+    <div class="menu_item"><span class="divtext">Красный</span></div>
+    <div class="menu_item"><span class="divtext">Оранжевый</span></div>
+    <div class="menu_item"><span class="divtext">Желтый</span></div>
+    <div class="menu_item"><span class="divtext">Зеленый</span></div>
+    <div class="menu_item"><span class="divtext">Голубой</span></div>
   </div>
 
   <div class="nextlink">
@@ -80,16 +85,14 @@
   </div>
 
   <script>
-    window.addEventListener("load", function(){
-      $(".menu_item").hover(function() {
+      $(".menu_item").mouseenter(function() {
         $(this).animate({width:"300px"}, 300);
-      }, function() {
+      });
+        $(".menu_item").mouseleave(function() {
         $(this).animate({width:"100px"}, 300);
       });
       $(".menu_item").click(function(e) {
         jAlert('Выбран ' + $(e.target).text().toLowerCase() + " пункт меню", 'Внимание');
       });
-    });
-
   </script>
 </html>
