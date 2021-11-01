@@ -66,11 +66,11 @@
   </head>
 
   <div class="menu">
-    <div class="menu_item">Красный</div>
-    <div class="menu_item">Оранжевый</div>
-    <div class="menu_item">Желтый</div>
-    <div class="menu_item">Зеленый</div>
-    <div class="menu_item">Голубой</div>
+    <div class="menu_item"></div>
+    <div class="menu_item"></div>
+    <div class="menu_item"></div>
+    <div class="menu_item"></div>
+    <div class="menu_item"></div>
   </div>
 
   <div class="nextlink">
@@ -80,13 +80,16 @@
   </div>
 
   <script>
-    $(".menu_item").hover(function() {
-      $(this).animate({width:"300px"}, 300);
-    }, function() {
-      $(this).animate({width:"100px"}, 300);
+    window.addEventListener("load", function(){
+      $(".menu_item").hover(function() {
+        $(this).animate({width:"300px"}, 300);
+      }, function() {
+        $(this).animate({width:"100px"}, 300);
+      });
+      $(".menu_item").click(function(e) {
+        jAlert('Выбран ' + $(e.target).text().toLowerCase() + " пункт меню", 'Внимание');
+      });
     });
-    $(".menu_item").click(function(e) {
-      jAlert('Выбран ' + $(e.target).text().toLowerCase() + " пункт меню", 'Внимание');
-    });
+
   </script>
 </html>
