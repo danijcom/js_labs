@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- С этой библиотекой можно классные анимации делать -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/MotionPathPlugin.min.js"></script>
+        <style>
+            #svg {
+                position: relative;
+                left: 15%;
+                -webkit-transform: translateX(-20%);
+                -ms-transform: translateX(-20%);
+                transform: translateX(-20%);
+            }
+            #canvas {
+                position: relative;
+                left: 15%;
+                -webkit-transform: translateX(-20%);
+                -ms-transform: translateX(-20%);
+                transform: translateX(-20%);
+            }
+            #case {
+                position: relative;
+                left: 15%;
+                -webkit-transform: translateX(-20%);
+                -ms-transform: translateX(-20%);
+                transform: translateX(-20%);
+                height: 10%;
+                width: 10%;
+            }
+            body {
+                font-family: Calibri !important;
+            }
+            a:link {
+                text-decoration: none;
+                color: #658ead;
+            }
+            a:visited {
+                text-decoration: none;
+                color: #658ead;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            a:active {
+                text-decoration: underline;
+            }
+            .header {
+                margin: 0px;
+                text-align: center;
+            }
+            .container {
+                padding: 5px;
+            }
+        </style>
+        <title>Lab 4 | SWG, Canvas</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <a href="https://github.com/danijcom/js_labs/tree/main/lab4">
+                <h1 class="header">Лабораторная работа №4</h1>
+            </a>
+        </div>
+        <h2>Нарисованно ручками:</h2>
+        <svg id="svg" width="700" height="300" xmlns="http://www.w3.org/2000/svg">
+            <path id="w" d="M 100 50 L 200 200 L 300 75 L 400 200 L 500 50"
+                  fill="none" stroke="violet" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" style="stroke-opacity: .3;"/>
+            <rect id="rectangle" x="50" y="20" rx="30" ry="30" width="200" height="100"
+                  style="fill:red;"/>
+        </svg>
+
+        <br>
+        <button id="play">Старт</button>
+        <button id="pause">Стоп</button>
+
+        <br>
+
+        <h2>Канвас (тоже ручками):</h2>
+        <canvas id="canvas" width="300" height="300"></canvas>
+
+        <br>
+
+        <h2>SVG из редактора:</h2>
+        <svg id="case" viewBox="147.994 113.276 115.272 115.272" xmlns="http://www.w3.org/2000/svg" >
+            <circle style="stroke-width: 0px; fill: rgb(125, 163, 78);" cx="205.63" cy="170.912" r="57.636"/>
+            <rect style="fill: none; stroke: rgb(255, 255, 255); stroke-width: 3px;" x="191.689" y="145.566" width="29.223" height="12.601" rx="5" ry="5"/>
+            <rect style="fill: rgb(255, 255, 255);" x="175.459" y="150.537" width="63.003" height="42.359" rx="5" ry="5"/>
+            <line style="fill: rgb(123, 216, 0); stroke-linecap: round; stroke-width: 4px; stroke: rgb(125, 163, 78);" x1="181.4" y1="161" x2="232.7" y2="161"/>
+            <line style="fill: rgb(123, 216, 0); stroke-linecap: round; stroke-width: 4px; stroke: rgb(125, 163, 78);" x1="181.371" y1="172.443" x2="232.7" y2="172.5"/>
+            <line style="fill: rgb(123, 216, 0); stroke-linecap: round; stroke-width: 4px; stroke: rgb(125, 163, 78);" x1="181.4" y1="183.5" x2="232.7" y2="183.5"/>
+        </svg>
+
+
+        <script type="text/javascript">
+            roundRect(50, 10, 200, 100, 30);
+            gsap.registerPlugin(MotionPathPlugin);
+            function roundRect(x, y, w, h, radius) {
+                let canvas = document.getElementById("canvas");
+                let context = canvas.getContext("2d");
+                let r = x + w;
+                let b = y + h;
+                context.beginPath();
+                context.strokeStyle="red";
+                context.fillStyle="red";
+                context.lineWidth="1";
+                context.moveTo(x+radius, y);
+                context.lineTo(r-radius, y);
+                context.quadraticCurveTo(r, y, r, y+radius);
+                context.lineTo(r, y+h-radius);
+                context.quadraticCurveTo(r, b, r-radius, b);
+                context.lineTo(x+radius, b);
+                context.quadraticCurveTo(x, b, x, b-radius);
+                context.lineTo(x, y+radius);
+                context.quadraticCurveTo(x, y, x+radius, y);
+                context.fill();
+                context.stroke();
+            }
+            var zigzag = gsap.to("#rectangle", {
+                motionPath:{
+                    path: "#w",
+                    align: "#w",
+                    alignOrigin: [.5, .5],
+                },
+                rotation: 360,
+                duration: 5, ease: "power1.inOut",
+                repeat: -1, yoyo: true
+            });
+            zigzag.pause();
+            document.querySelector("#play").onclick = () => zigzag.play();
+            document.querySelector("#pause").onclick = () => zigzag.pause();
+        </script>
+    </body>
+</html>
